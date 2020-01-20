@@ -124,6 +124,12 @@
 //       variable llamada nuestroTitulo.
 //       Utilizá console.log para ver lo que obtuviste!
 
+const nuestroTwitter = document.querySelector('.twitter');
+console.log(nuestroTwitter);
+
+const titulo = document.querySelector('h1');
+console.log('titulo');
+
 
 
 
@@ -147,25 +153,22 @@
 // TAREA: Obtené todos los elementos <li> de la página en una variable llamada mediaLinks.
 
 
-
-
+const mediaLinks = document.querySelectorAll('li');
+console.log(mediaLinks); //Esto devuelve algo parecido a un array, especificamente es un nodeList **Googlear
 
 
 // TAREA: Ahora utilizá console.log para ver la cantidad de 
 // elementos li que hay con mediaLinks.length
 
-
-
-
+console.log(mediaLinks.length);
 
 
 // TAREA: ¿Te acordás de los bucles del nivel 2? Usando lo que sabés de ellos, realizá iteraciones
 //      sobre cada item de mediaLinks y mostralos en pantalla con console.log
 
-
-
-
-
+for (let i = 0 ; i < mediaLinks.length ; i++){
+    console.log(mediaLinks[i]);
+}
 
 /*
     Propiedades de los elementos
@@ -184,9 +187,13 @@
 // TAREA: Obtené el contenido de nuestro elemento 'h1'
 // y utilizá console.log para mostrarlo.
 
+console.log(titulo.textContent);
+console.log(titulo.innerText);
 
-
-
+// .textContent dara el contenido de texto que haya dentro de ese elemento, eso es todo (usado el 90% de los casos)
+// .innerText calcula que elementos estan visibles en la pagina, si no estan visibles no da el texto
+// por performance es mejor usar .textContent ya que no tiene que preguntar que cosas estan visibles y cuales no
+// .innerHtml devuelve literalmente el pedazo de codigo HTML que se encuentra dentro del elemento que estamos utilizando
 
 
 /*
@@ -204,6 +211,13 @@
 */
 
 // TAREA: Hagamos un nuevo título! Cambiá el contenido de nuestro 'h1' y ponele lo que quieras.
+
+// const nuevoTitulo = prompt('Ingresa el nuevo titulo de la pagina' || '');
+// console.log(nuevoTitulo);
+// if(nuevoTitulo){
+//     console.log('Es verdadero');
+// }
+// titulo.textContent = (nuevoTitulo ? nuevoTitulo : titulo.textContent);
 
 
 
@@ -223,7 +237,7 @@
 
 // TAREA: Actualizá el valor del atributo 'src' de nuestra etiqueta 'img' a "img/kittens.jpeg".
 
-
+document.querySelector('img').src = 'img/kittens.jpeg';
 
 
 
@@ -247,6 +261,9 @@
 */
 
 // Tarea: Obtené cualquier elemento de la página y cambiale algunos estilos.
+
+nuestroTwitter.style.backgroundColor = 'black';
+titulo.style.fontSize = '24em';
 
 
 
@@ -272,6 +289,13 @@
     nodoPagina.appendChild(nuevoParrafo);
 */
 
+const nodoBody = document.querySelector('body');
+const nuevoParrafo = document.createElement('p'); //Se crea el elemento <p></p> en memoria NO en la pagina
+const textoParrafo = document.createTextNode('Federico Nicolas Infantino'); // Crea un texto en MEMORIA
+
+nuevoParrafo.appendChild(textoParrafo); // <p>Federico Nicolas Infantino</p>
+nodoBody.appendChild(nuevoParrafo);
+
 // Tarea: Todavía seguís teniendo a los gatitos en tu pantalla? A mí me gusta el logo y los gatitos.
 //       Creá una nueva imagen con nuestro logo como fuente, y ponela
 //       en nuestra cabecera.
@@ -279,7 +303,10 @@
 // P.S. También les podés dar estilos al nuevo nodo que creaste.
 
 
+const nodoImagen = document.createElement('img');
+nodoImagen.src = 'img/woman_bw.jpg';
 
+document.querySelector('header').appendChild(nodoImagen);
 
 
 
